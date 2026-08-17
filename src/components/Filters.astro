@@ -1,0 +1,41 @@
+---
+import { MODELS, INDUSTRIES, type ModelKey, type IndustryKey } from '../lib/catalog';
+
+interface Props {
+  /** Что сейчас выбрано; null — показаны все бренды */
+  active: { kind: 'model' | 'industry'; key: string } | null;
+  models: ModelKey[];
+  industries: IndustryKey[];
+}
+const { active, models, industries } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const line = (
+  kind: 'model' | 'industry',
+  keys: readonly string[],
+  dict: Record<string, { slug: string; label: string }>
+) =>
+  keys.map((key) => ({
+    label: dict[key].label,
+    href: `${base}/${dict[key].slug}/`,
+    current: active?.kind === kind && active.key === key,
+  }));
+
+const rows = [
+  [{ label: 'Все', href: `${base}/`, current: active === null }, ...line('model', models, MODELS)],
+  line('industry', industries, INDUSTRIES),
+];
+---
+
+{/* Активный пункт — обычный текст, остальные — ссылки. Разницу состояний
+    рисует сама дизайн-система: ссылки синие с подчёркиванием, текст чёрный. */}
+{rows.map((items) => (
+  <p>
+    {items.map((item, i) => (
+      <>
+        {i > 0 && ' · '}
+        {item.current ? item.label : <a href={item.href}>{item.label}</a>}
+      </>
+    ))}
+  </p>
+))}

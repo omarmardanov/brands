@@ -27,6 +27,9 @@ const brands = defineCollection({
   schema: z.object({
     name: z.string(),
     logo: z.string().nullable().default(null),
+    /* Фирменный цвет бренда — это данные, а не токен системы: он приходит извне
+       и у каждого бренда свой. Где цвет совпадает с палитрой ДС, ссылаемся на неё. */
+    color: z.string().nullable().default(null),
     industry: z.enum(['food', 'retail', 'services', 'beauty', 'education', 'auto', 'health']),
     origin: z.string(),
     founded: z.number().nullable().default(null),

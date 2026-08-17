@@ -1,20 +1,35 @@
 {
   "name": "Дринкит",
+  "color": "var(--ids__color-blue-500)",
   "industry": "food",
   "origin": "Россия",
   "founded": 2020,
   "website": "https://drinkit.coffee",
   "description": "Сеть кофеен от создателей «Додо Пиццы». Заказ и оплата через приложение, условия франшизы публикуются открыто.",
   "units": null,
-  "holding": { "name": "Dodo Brands", "url": "https://dodobrands.io" },
+  "holding": {
+    "name": "Dodo Brands",
+    "url": "https://dodobrands.io"
+  },
   "offers": [
     {
       "model": "franchise",
       "format": "Стандарт",
-      "countries": ["Россия"],
-      "investmentFrom": { "amount": 9500000, "currency": "RUB" },
-      "investmentTo": { "amount": 12000000, "currency": "RUB" },
-      "lumpSum": { "amount": 1000000, "currency": "RUB" },
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 9500000,
+        "currency": "RUB"
+      },
+      "investmentTo": {
+        "amount": 12000000,
+        "currency": "RUB"
+      },
+      "lumpSum": {
+        "amount": 1000000,
+        "currency": "RUB"
+      },
       "royalty": "3% в первый год, 5% во второй, далее 8% от выручки",
       "marketingFee": null,
       "paybackFrom": null,
@@ -32,10 +47,21 @@
     {
       "model": "franchise",
       "format": "Остров",
-      "countries": ["Россия"],
-      "investmentFrom": { "amount": 4000000, "currency": "RUB" },
-      "investmentTo": { "amount": 4500000, "currency": "RUB" },
-      "lumpSum": { "amount": 500000, "currency": "RUB" },
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 4000000,
+        "currency": "RUB"
+      },
+      "investmentTo": {
+        "amount": 4500000,
+        "currency": "RUB"
+      },
+      "lumpSum": {
+        "amount": 500000,
+        "currency": "RUB"
+      },
       "royalty": "3% в первый год, 5% во второй, далее 8% от выручки",
       "marketingFee": null,
       "paybackFrom": null,

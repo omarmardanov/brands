@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '../../layouts/Page.astro';
+import BrandTable from '../../components/BrandTable.astro';
+import Filters from '../../components/Filters.astro';
+import {
+  MODELS, INDUSTRIES, orderModels, orderIndustries,
+  type ModelKey, type IndustryKey,
+} from '../../lib/catalog';
+
+/* Один маршрут на обе оси фильтрации: модель сотрудничества и отрасль.
+   Адреса плоские — /franshiza/, /eda/ — потому что это посадочные страницы. */
+export async function getStaticPaths() {
+  const all = await getCollection('brands');
+
+  const byModel = (Object.keys(MODELS) as ModelKey[]).map((key) => ({
+    kind: 'model' as const,
+    key,
+    slug: MODELS[key].slug,
+    title: MODELS[key].label,
+    brands: all.filter((b) => b.data.offers.some((o) => o.model === key)),
+  }));
+
+  const byIndustry = (Object.keys(INDUSTRIES) as IndustryKey[]).map((key) => ({
+    kind: 'industry' as const,
+    key,
+    slug: INDUSTRIES[key].slug,
+    title: INDUSTRIES[key].label,
+    brands: all.filter((b) => b.data.industry === key),
+  }));
+
+  return [...byModel, ...byIndustry]
+    .filter((page) => page.brands.length > 0)
+    .map(({ slug, ...props }) => ({ params: { slug }, props }));
+}
+
+const { kind, key, title, brands } = Astro.props;
+
+const all = await getCollection('brands');
+const models = orderModels(all.flatMap((b) => b.data.offers.map((o) => o.model)));
+const industries = orderIndustries(all.map((b) => b.data.industry));
+
+const lead =
+  kind === 'model'
+    ? `Бренды, доступные по модели «${title.toLowerCase()}».`
+    : `Бренды в отрасли «${title.toLowerCase()}».`;
+---
+
+<Page title={`${title} — бренды, с которыми можно построить бизнес`} description={lead}>
+  <h1 class="XS">{title}</h1>
+
+  <div class="ids__space S"></div>
+  <Filters active={{ kind, key }} models={models} industries={industries} />
+  <div class="ids__space S"></div>
+
+  <BrandTable brands={brands} model={kind === 'model' ? (key as ModelKey) : null} />
+</Page>

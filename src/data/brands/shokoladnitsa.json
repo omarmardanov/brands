@@ -1,0 +1,53 @@
+{
+  "name": "Шоколадница",
+  "color": "rgb(74, 47, 36)",
+  "industry": "food",
+  "origin": "Россия",
+  "founded": 2001,
+  "website": "https://shoko.ru",
+  "description": "Сеть кофеен. Франчайзинговая программа запущена в 2008 году, есть точки в России и СНГ.",
+  "units": null,
+  "holding": null,
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 11000000,
+        "currency": "RUB"
+      },
+      "investmentTo": {
+        "amount": 15000000,
+        "currency": "RUB"
+      },
+      "lumpSum": {
+        "amount": 2500000,
+        "currency": "RUB"
+      },
+      "royalty": "7% от валовой выручки",
+      "marketingFee": null,
+      "paybackFrom": null,
+      "paybackTo": null,
+      "requirements": [
+        "Помещение в центре города, на главной улице, в деловом или торговом центре"
+      ],
+      "provides": [
+        "Архитектурный, технологический и дизайн-проект",
+        "Оборудование и мебель",
+        "Поддержка после открытия"
+      ],
+      "contact": "https://shoko.ru"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://franshiza.ru/franchise/read/shokoladnica/",
+      "title": "Франшиза кофейни Шоколадница — цена и условия",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}

@@ -13,7 +13,7 @@ const d = brand.data;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const facts = [
-  ['Отрасль', INDUSTRIES[d.industry]],
+  ['Отрасль', INDUSTRIES[d.industry].label],
   ['Откуда бренд', d.origin],
   ['Год основания', d.founded ? String(d.founded) : null],
   ['Точек в сети', d.units ? String(d.units) : null],
@@ -68,7 +68,7 @@ const facts = [
             {o.royalty && <tr><td class="key">Роялти</td><td>{o.royalty}</td></tr>}
             {o.marketingFee && <tr><td class="key">Маркетинговый взнос</td><td>{o.marketingFee}</td></tr>}
             {payback && <tr><td class="key">Окупаемость</td><td>{payback}</td></tr>}
-            <tr><td class="key">Страны</td><td>{o.countries.join(', ')}</td></tr>
+            <tr><td class="key">Где можно открыть</td><td>{o.countries.join(', ')}</td></tr>
             {o.requirements.length > 0 && (
               <tr>
                 <td class="key">Требования</td>

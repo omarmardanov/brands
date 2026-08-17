@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { MODELS, INDUSTRIES, range, usd, type ModelKey } from '../lib/catalog';
+import { INDUSTRIES, range, type ModelKey } from '../lib/catalog';
 
 interface Props {
   brands: CollectionEntry<'brands'>[];
@@ -28,29 +28,25 @@ const rows = [...brands].sort(
 <table class="brands">
   <thead>
     <tr>
+      {/* В строке только то, по чему решают смотреть дальше.
+          Модель — в фильтре, география и условия — в карточке бренда. */}
       <th>Бренд</th>
-      <th>Модель</th>
-      <th>Страны</th>
       <th>Вложения</th>
     </tr>
   </thead>
   <tbody>
     {rows.map((brand) => {
-      const offers = shown(brand);
       const entry = cheapest(brand);
-      const models = [...new Set(offers.map((o) => o.model))] as ModelKey[];
       return (
         <tr>
-          <td>
+          <td class="brand">
+            {brand.data.logo
+              ? <img class="mark" src={`${base}${brand.data.logo}`} alt="" />
+              : <span class="mark" style={brand.data.color ? `background: ${brand.data.color}` : undefined}></span>}
             <a href={`${base}/brands/${brand.id}/`}>{brand.data.name}</a>
-            <span class="sub">{INDUSTRIES[brand.data.industry]}, {brand.data.origin}</span>
+            <span class="sub">{INDUSTRIES[brand.data.industry].label}</span>
           </td>
-          <td>{models.map((m) => MODELS[m].label).join(', ')}</td>
-          <td>{[...new Set(offers.flatMap((o) => o.countries))].join(', ')}</td>
-          <td>
-            {range(entry.investmentFrom, entry.investmentTo)}
-            <span class="sub">≈ {usd(entry.investmentFrom)}</span>
-          </td>
+          <td class="money">{range(entry.investmentFrom, entry.investmentTo)}</td>
         </tr>
       );
     })}

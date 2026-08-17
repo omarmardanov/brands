@@ -1,0 +1,49 @@
+{
+  "name": "Yves Rocher",
+  "color": "rgb(0, 106, 61)",
+  "industry": "beauty",
+  "origin": "Франция",
+  "founded": 1959,
+  "website": "https://www.yves-rocher.ru",
+  "description": "Марка растительной косметики. Партнёрам предлагает фирменные магазины без паушального взноса и роялти.",
+  "units": null,
+  "holding": null,
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 3500000,
+        "currency": "RUB"
+      },
+      "investmentTo": {
+        "amount": 6500000,
+        "currency": "RUB"
+      },
+      "lumpSum": null,
+      "royalty": "Нет",
+      "marketingFee": null,
+      "paybackFrom": 12,
+      "paybackTo": 36,
+      "requirements": [
+        "Помещение под магазин косметики"
+      ],
+      "provides": [
+        "Товар и оформление магазина",
+        "Обучение персонала"
+      ],
+      "contact": "https://www.yves-rocher.ru"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://franshiza.ru/franchise/read/yves_rocher/",
+      "title": "Франшиза Yves Rocher — цена и условия",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}

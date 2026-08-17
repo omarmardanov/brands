@@ -1,0 +1,51 @@
+{
+  "name": "СДЭК",
+  "color": "rgb(0, 158, 76)",
+  "industry": "services",
+  "origin": "Россия",
+  "founded": 2000,
+  "website": "https://www.cdek.ru",
+  "description": "Служба доставки. Партнёрам предлагает открытие пунктов выдачи заказов под своим брендом.",
+  "units": null,
+  "holding": null,
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 800000,
+        "currency": "RUB"
+      },
+      "investmentTo": null,
+      "lumpSum": {
+        "amount": 100000,
+        "currency": "RUB"
+      },
+      "royalty": "10% от выручки, начиная с седьмого месяца работы",
+      "marketingFee": null,
+      "paybackFrom": 12,
+      "paybackTo": 24,
+      "requirements": [
+        "Помещение под пункт выдачи",
+        "Операционный резерв на первые полгода — около 1 млн ₽"
+      ],
+      "provides": [
+        "Подключение к системе учёта сети",
+        "Поток заказов от интернет-магазинов",
+        "Обучение"
+      ],
+      "contact": "https://www.cdek.ru"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://topfranchise.ru/products/franshiza-sluzhby-dostavki-ekspress-kurera-sdek/",
+      "title": "Франшиза СДЭК — цена и срок окупаемости",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Cinnabon",
+  "color": "rgb(122, 71, 42)",
+  "industry": "food",
+  "origin": "США",
+  "founded": 1985,
+  "website": "https://cinnabon.ru",
+  "description": "Кафе-пекарни с коричными булочками. В России работает по франшизе с начала двухтысячных.",
+  "units": null,
+  "holding": null,
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 4200000,
+        "currency": "RUB"
+      },
+      "investmentTo": {
+        "amount": 5500000,
+        "currency": "RUB"
+      },
+      "lumpSum": {
+        "amount": 1200000,
+        "currency": "RUB"
+      },
+      "royalty": "6% от выручки в месяц",
+      "marketingFee": "1,1–1,7% от выручки",
+      "paybackFrom": 6,
+      "paybackTo": 18,
+      "requirements": [
+        "Полная сумма инвестиций на руках",
+        "Приветствуется опыт в общепите"
+      ],
+      "provides": [
+        "Технология и рецептуры сети",
+        "Обучение персонала",
+        "Стандарты и регламенты"
+      ],
+      "contact": "https://cinnabon.ru"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://businessmens.ru/franchise/cinnabon-1002",
+      "title": "Франшиза Cinnabon — цены и условия в России",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}

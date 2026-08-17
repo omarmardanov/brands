@@ -1,0 +1,50 @@
+{
+  "name": "Полиглотики",
+  "color": "rgb(138, 79, 175)",
+  "industry": "education",
+  "origin": "Россия",
+  "founded": 2006,
+  "website": "https://www.poliglotiki.ru",
+  "description": "Сеть детских языковых центров с авторскими программами. Больше 140 филиалов.",
+  "units": 140,
+  "holding": null,
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 500000,
+        "currency": "RUB"
+      },
+      "investmentTo": null,
+      "lumpSum": {
+        "amount": 180000,
+        "currency": "RUB"
+      },
+      "royalty": "16 000–30 000 ₽ в месяц, с отсрочкой до открытия центра",
+      "marketingFee": null,
+      "paybackFrom": 6,
+      "paybackTo": null,
+      "requirements": [
+        "Помещение под детский центр"
+      ],
+      "provides": [
+        "Авторские программы обучения",
+        "Полный пакет документов по бизнесу",
+        "Обучение методистов"
+      ],
+      "contact": "https://poliglotiki-franchise.com/"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://topfranchise.ru/products/franshiza-detskogo-yazykovogo-tsentra-poliglotiki/",
+      "title": "Франшиза Полиглотики — цены и условия",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}

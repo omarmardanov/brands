@@ -1,5 +1,6 @@
 {
   "name": "Askona",
+  "color": "rgb(0, 178, 178)",
   "industry": "retail",
   "origin": "Россия",
   "founded": 1990,
@@ -10,9 +11,17 @@
   "offers": [
     {
       "model": "dealership",
-      "countries": ["Россия", "Беларусь", "Казахстан"],
-      "investmentFrom": { "amount": 1500000, "currency": "RUB" },
-      "investmentTo": { "amount": 8000000, "currency": "RUB" },
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 1500000,
+        "currency": "RUB"
+      },
+      "investmentTo": {
+        "amount": 8000000,
+        "currency": "RUB"
+      },
       "lumpSum": null,
       "royalty": "Нет",
       "marketingFee": null,

@@ -1,0 +1,55 @@
+{
+  "name": "Инвитро",
+  "color": "rgb(214, 31, 38)",
+  "industry": "health",
+  "origin": "Россия",
+  "founded": 1995,
+  "website": "https://www.invitro.ru",
+  "description": "Сеть медицинских лабораторий и офисов забора анализов. Партнёр открывает медофис и получает долю от стоимости исследований.",
+  "units": null,
+  "holding": null,
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 3500000,
+        "currency": "RUB"
+      },
+      "investmentTo": {
+        "amount": 4200000,
+        "currency": "RUB"
+      },
+      "lumpSum": {
+        "amount": 200000,
+        "currency": "RUB"
+      },
+      "royalty": "28 000 ₽ в месяц для регионального формата",
+      "marketingFee": null,
+      "paybackFrom": 36,
+      "paybackTo": null,
+      "requirements": [
+        "Помещение под медицинский офис",
+        "Открытие занимает 4–5 месяцев"
+      ],
+      "provides": [
+        "Техническая поддержка 24/7",
+        "Медицинские расходные материалы централизованно",
+        "Сопровождение через территориальные центры компетенций",
+        "Партнёр получает 40% стоимости исследований"
+      ],
+      "contact": "https://www.invitro.ru"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://franshiza.ru/franchise/read/invitro/",
+      "title": "Франшиза ИНВИТРО — условия, инвестиции, окупаемость",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}

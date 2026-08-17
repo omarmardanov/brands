@@ -1,0 +1,50 @@
+{
+  "name": "Стардогс",
+  "color": "rgb(218, 41, 28)",
+  "industry": "food",
+  "origin": "Россия",
+  "founded": 1993,
+  "website": "https://stardogs.ru",
+  "description": "Сеть быстрого питания, хот-доги. Работает с 1993 года, есть собственное производство.",
+  "units": 200,
+  "holding": null,
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 1050000,
+        "currency": "RUB"
+      },
+      "investmentTo": null,
+      "lumpSum": {
+        "amount": 50000,
+        "currency": "RUB"
+      },
+      "royalty": "3% от оборота по горячим блюдам",
+      "marketingFee": null,
+      "paybackFrom": null,
+      "paybackTo": null,
+      "requirements": [
+        "Место под точку одного из шести форматов"
+      ],
+      "provides": [
+        "Собственное сертифицированное производство",
+        "Оборудование и запуск",
+        "Обучение"
+      ],
+      "contact": "https://stardogs.ru"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://topfranchise.ru/products/franshiza-bystrogo-pitaniya-stardog-s/",
+      "title": "Франшиза Stardogs — условия и цены",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}

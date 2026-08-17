@@ -28,14 +28,35 @@ html {
     max-width: 18em;
   }
 
+  /* Размер взят у figcaption — это образец подписи в самой системе */
   & .caption {
+    font-size: 0.8em;
     color: var(--ids__text-caption);
+  }
+
+  /* Метка бренда — квадрат фирменного цвета. Цвет приходит из данных бренда;
+     если его нет, остаётся серый. Если появится файл логотипа, в этот же бокс
+     встанет картинка. Кегль здесь задаёт размер бокса, а не текст. */
+  & .mark {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    margin-right: 0.4em;
+    vertical-align: -0.6em;
+    border-radius: var(--ids__radius-s);
+    background: var(--ids__color-gray-400);
+    font-size: 0.8em;
+  }
+
+  & img.mark {
+    object-fit: contain;
+    background: none;
   }
 
   /* Вторая строка в ячейке: отрасль под названием, пересчёт в доллары под суммой */
   & .sub {
     display: block;
-    font-size: 0.85em;
+    font-size: 0.8em;
     color: var(--ids__text-caption);
   }
 
@@ -66,39 +87,53 @@ html {
       }
 
       & tr {
+        /* поле справа под сумму: держим обе строки в стороне от неё,
+           иначе длинный перечень стран упирается в цену */
+        --money-column: 7.5em;
+
         display: block;
+        position: relative;
         padding: calc(var(--ids__density) * 0.5em) 0;
+        padding-left: 2.1em;
+        padding-right: var(--money-column);
         border-bottom: var(--ids__border-width-s) solid var(--ids__border);
+      }
+
+      /* Метка висит слева от текста, а не сдвигает первую строку: иначе название
+         начинается с одного места, а строки под ним — с другого. */
+      & .mark {
+        position: absolute;
+        left: 0;
+        top: 0.6em;
+        margin-right: 0;
+        vertical-align: baseline;
       }
 
       & td {
         display: block;
         padding: 0;
         border-bottom: 0;
-        font-size: 0.9em;
+        font-size: 0.8em;
         color: var(--ids__text-caption);
       }
 
-      /* Название и вложения — то, ради чего строку читают */
-      & td:first-child,
-      & td:last-child {
+      /* Первая строка: название слева, сумма справа. Суммы выстраиваются
+         в столбец, поэтому их можно сравнивать взглядом. */
+      & .brand,
+      & .money {
         font-size: 1em;
         color: var(--ids__text);
       }
 
-      /* Модель и страны живут одной строкой */
-      & td:nth-child(2),
-      & td:nth-child(3) {
-        display: inline;
+      & .money {
+        position: absolute;
+        /* поле строки на абсолютное позиционирование не влияет: 0 — это уже край */
+        right: 0;
+        /* совпадает с верхним отступом строки: у ячейки тот же кегль, что у неё */
+        top: calc(var(--ids__density) * 0.5em);
+        text-align: right;
       }
 
-      & td:nth-child(3)::before {
-        content: " · ";
-      }
-
-      & td:last-child {
-        margin-top: calc(var(--ids__density) * 0.25em);
-      }
 
       & .sub {
         display: inline;

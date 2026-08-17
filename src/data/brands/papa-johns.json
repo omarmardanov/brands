@@ -1,0 +1,51 @@
+{
+  "name": "Papa John's",
+  "color": "rgb(206, 32, 41)",
+  "industry": "food",
+  "origin": "США",
+  "founded": 1984,
+  "website": "https://papajohns.ru",
+  "description": "Международная сеть пиццерий. В России развивается через мастер-франчайзи PJ Western с 2003 года.",
+  "units": null,
+  "holding": null,
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 8000000,
+        "currency": "RUB"
+      },
+      "investmentTo": null,
+      "lumpSum": {
+        "amount": 600000,
+        "currency": "RUB"
+      },
+      "royalty": "4% от выручки в первый год, далее 7%",
+      "marketingFee": null,
+      "paybackFrom": null,
+      "paybackTo": null,
+      "requirements": [
+        "Помещение под пиццерию",
+        "Взнос зависит от численности населения города"
+      ],
+      "provides": [
+        "Технология и рецептуры сети",
+        "Обучение",
+        "Сопровождение запуска"
+      ],
+      "contact": "https://papajohns.ru"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://ex.ru/f/papa-johns",
+      "title": "Франшиза Papa John's — цена и условия",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}

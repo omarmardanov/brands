@@ -14,15 +14,23 @@ export function orderModels(keys: Iterable<string>): ModelKey[] {
   return (Object.keys(MODELS) as ModelKey[]).filter((k) => present.has(k));
 }
 
-export const INDUSTRIES: Record<string, string> = {
-  food: 'Еда',
-  retail: 'Розница',
-  services: 'Услуги',
-  beauty: 'Красота',
-  education: 'Образование',
-  auto: 'Авто',
-  health: 'Здоровье',
-};
+export const INDUSTRIES = {
+  food: { slug: 'eda', label: 'Еда' },
+  retail: { slug: 'roznica', label: 'Розница' },
+  services: { slug: 'uslugi', label: 'Услуги' },
+  beauty: { slug: 'krasota', label: 'Красота' },
+  education: { slug: 'obrazovanie', label: 'Образование' },
+  auto: { slug: 'avto', label: 'Авто' },
+  health: { slug: 'zdorove', label: 'Здоровье' },
+} as const;
+
+export type IndustryKey = keyof typeof INDUSTRIES;
+
+/** Отрасли в порядке объявления, а не в порядке появления в данных */
+export function orderIndustries(keys: Iterable<string>): IndustryKey[] {
+  const present = new Set(keys);
+  return (Object.keys(INDUSTRIES) as IndustryKey[]).filter((k) => present.has(k));
+}
 
 /* Курсы для пересчёта в доллары — приблизительные, обновлять вручную.
    Проверены 17 августа 2026 года. */

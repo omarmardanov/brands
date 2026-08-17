@@ -1,0 +1,53 @@
+{
+  "name": "FIT SERVICE",
+  "color": "rgb(0, 51, 141)",
+  "industry": "auto",
+  "origin": "Россия",
+  "founded": 2008,
+  "website": "https://fitauto.ru",
+  "description": "Сеть автосервисов с собственной IT-системой. Создана в партнёрстве с дистрибьютором запчастей ROSSKO.",
+  "units": null,
+  "holding": null,
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 6000000,
+        "currency": "RUB"
+      },
+      "investmentTo": {
+        "amount": 13500000,
+        "currency": "RUB"
+      },
+      "lumpSum": {
+        "amount": 500000,
+        "currency": "RUB"
+      },
+      "royalty": "4,8–6,5% от выручки",
+      "marketingFee": null,
+      "paybackFrom": 22,
+      "paybackTo": null,
+      "requirements": [
+        "Помещение под станцию на несколько постов"
+      ],
+      "provides": [
+        "IT-система сети",
+        "Поставки запчастей",
+        "Обучение и сопровождение"
+      ],
+      "contact": "https://fran.fitauto.ru/"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://franshiza.ru/franchise/read/fit_service/",
+      "title": "Франшиза автосервиса FIT Service — цена и условия",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}

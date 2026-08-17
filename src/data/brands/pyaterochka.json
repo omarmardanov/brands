@@ -1,0 +1,53 @@
+{
+  "name": "Пятёрочка",
+  "color": "rgb(0, 128, 62)",
+  "industry": "retail",
+  "origin": "Россия",
+  "founded": 1998,
+  "website": "https://5ka.ru",
+  "description": "Сеть продуктовых магазинов у дома. Партнёр открывает магазин под брендом и получает вознаграждение процентом от выручки.",
+  "units": null,
+  "holding": {
+    "name": "X5 Group",
+    "url": "https://www.x5.ru"
+  },
+  "offers": [
+    {
+      "model": "franchise",
+      "format": null,
+      "countries": [
+        "Россия"
+      ],
+      "investmentFrom": {
+        "amount": 20000000,
+        "currency": "RUB"
+      },
+      "investmentTo": null,
+      "lumpSum": {
+        "amount": 500000,
+        "currency": "RUB"
+      },
+      "royalty": "Нет. Партнёр получает 14–17% от выручки магазина, до 20–22% при выполнении показателей",
+      "marketingFee": null,
+      "paybackFrom": 26,
+      "paybackTo": null,
+      "requirements": [
+        "Помещение под магазин у дома"
+      ],
+      "provides": [
+        "Товар и логистика сети",
+        "Оборудование в рассрочку",
+        "Обучение и сопровождение"
+      ],
+      "contact": "https://franch.5ka.ru"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://franshiza.ru/franchise/read/pyaterochka/",
+      "title": "Франшиза Пятёрочка — инвестиции, условия, прибыль",
+      "checked": "2026-08-17"
+    }
+  ],
+  "logo": null
+}
