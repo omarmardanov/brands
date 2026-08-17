@@ -1,0 +1,40 @@
+{
+  "name": "Askona",
+  "industry": "retail",
+  "origin": "Россия",
+  "founded": 1990,
+  "website": "https://askona.ru",
+  "description": "Производитель товаров для сна: матрасы, кровати, подушки, постельное бельё. Партнёрам предлагает розничные салоны без роялти и паушального взноса.",
+  "units": null,
+  "holding": null,
+  "offers": [
+    {
+      "model": "dealership",
+      "countries": ["Россия", "Беларусь", "Казахстан"],
+      "investmentFrom": { "amount": 1500000, "currency": "RUB" },
+      "investmentTo": { "amount": 8000000, "currency": "RUB" },
+      "lumpSum": null,
+      "royalty": "Нет",
+      "marketingFee": null,
+      "paybackFrom": 12,
+      "paybackTo": null,
+      "requirements": [
+        "Помещение от 100 до 400 м² в торговом центре",
+        "Запуск салона занимает 2–4 месяца"
+      ],
+      "provides": [
+        "Обустройство салона в фирменном стиле за счёт компании, рассрочка 18 месяцев",
+        "Выставочные образцы в рассрочку на 18 месяцев",
+        "Четыре формата салона под разные типы центров"
+      ],
+      "contact": "https://askona.ru"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://franshiza.ru/franchise/read/askona/",
+      "title": "Франшиза салона товаров для сна Askona",
+      "checked": "2026-08-17"
+    }
+  ]
+}

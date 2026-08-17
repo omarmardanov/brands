@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '../../layouts/Page.astro';
+import BrandTable from '../../components/BrandTable.astro';
+import ModelFilter from '../../components/ModelFilter.astro';
+import { MODELS, orderModels, type ModelKey } from '../../lib/catalog';
+
+export async function getStaticPaths() {
+  const brands = await getCollection('brands');
+  return (Object.keys(MODELS) as ModelKey[])
+    .map((key) => ({
+      key,
+      brands: brands.filter((b) => b.data.offers.some((o) => o.model === key)),
+    }))
+    .filter(({ brands }) => brands.length > 0)
+    .map(({ key, brands }) => ({
+      params: { model: MODELS[key].slug },
+      props: { key, brands },
+    }));
+}
+
+const { key, brands } = Astro.props;
+const all = await getCollection('brands');
+const available = orderModels(all.flatMap((b) => b.data.offers.map((o) => o.model)));
+const label = MODELS[key as ModelKey].label;
+---
+
+<Page
+  title={`${label} — бренды, с которыми можно построить бизнес`}
+  description={`Бренды, доступные по модели «${label.toLowerCase()}»: условия, вложения, страны и контакты.`}
+>
+  <h1 class="XS">{label}</h1>
+  <p class="caption">Бренды, доступные по этой модели сотрудничества.</p>
+
+  <div class="ids__space S"></div>
+  <ModelFilter active={key as ModelKey} available={available} />
+  <div class="ids__space S"></div>
+
+  <BrandTable brands={brands} model={key as ModelKey} />
+</Page>

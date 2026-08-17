@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { MODELS, INDUSTRIES, range, usd, type ModelKey } from '../lib/catalog';
+
+interface Props {
+  brands: CollectionEntry<'brands'>[];
+  /** Если задана — в строке показываем условия именно этой модели */
+  model?: ModelKey | null;
+}
+const { brands, model = null } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+/** Предложения, попадающие под текущий фильтр */
+function shown(brand: CollectionEntry<'brands'>) {
+  return model ? brand.data.offers.filter((o) => o.model === model) : brand.data.offers;
+}
+
+/** Самое дешёвое предложение — по нему сортируем и показываем вход */
+function cheapest(brand: CollectionEntry<'brands'>) {
+  return shown(brand).reduce((a, b) => (a.investmentFrom.amount <= b.investmentFrom.amount ? a : b));
+}
+
+const rows = [...brands].sort(
+  (a, b) => cheapest(a).investmentFrom.amount - cheapest(b).investmentFrom.amount
+);
+---
+
+<table class="brands">
+  <thead>
+    <tr>
+      <th>Бренд</th>
+      <th>Модель</th>
+      <th>Страны</th>
+      <th>Вложения</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows.map((brand) => {
+      const offers = shown(brand);
+      const entry = cheapest(brand);
+      const models = [...new Set(offers.map((o) => o.model))] as ModelKey[];
+      return (
+        <tr>
+          <td>
+            <a href={`${base}/brands/${brand.id}/`}>{brand.data.name}</a>
+            <span class="sub">{INDUSTRIES[brand.data.industry]}, {brand.data.origin}</span>
+          </td>
+          <td>{models.map((m) => MODELS[m].label).join(', ')}</td>
+          <td>{[...new Set(offers.flatMap((o) => o.countries))].join(', ')}</td>
+          <td>
+            {range(entry.investmentFrom, entry.investmentTo)}
+            <span class="sub">≈ {usd(entry.investmentFrom)}</span>
+          </td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>

@@ -1,0 +1,104 @@
+/* Проектные добавки к IDS. Только семантические токены, вложенный CSS, без сборки —
+   по конвенциям системы (docs/CONVENTIONS.md в репозитории IDS).
+   Всё, чего в IDS нет, живёт здесь. Держим файл маленьким. */
+
+/* Типографика мельче стандартной: у IDS корень на десктопе растёт до 22,5px,
+   для каталога это крупно. Меняем только границы флюидного корня. */
+html {
+  --desktop-font-size-min: 10.5;
+  --desktop-font-size-max: 17;
+  --mobile-font-size-max: 22;
+}
+
+.ids {
+  /* Заголовок сам ищет ровный перенос, без ручного <br> */
+  & h1 {
+    text-wrap: balance;
+    max-width: 18em;
+  }
+
+  & .caption {
+    color: var(--ids__text-caption);
+  }
+
+  /* Вторая строка в ячейке: отрасль под названием, пересчёт в доллары под суммой */
+  & .sub {
+    display: block;
+    font-size: 0.85em;
+    color: var(--ids__text-caption);
+  }
+
+  /* Название параметра в карточке бренда */
+  & .key {
+    width: 30%;
+    color: var(--ids__text-caption);
+  }
+
+  & table {
+    width: 100%;
+  }
+
+  /* Списки внутри ячеек не должны добавлять нижний отступ строке */
+  & td ul {
+    margin-bottom: 0;
+  }
+
+  /* На узком экране каталог перестаёт быть таблицей: четыре колонки не помещаются,
+     а IDS ужимает таблицу до 0,7em — читать невозможно. Строка становится блоком:
+     название, под ним отрасль, модель со странами и вложения. */
+  @media (width < 768px) {
+    & .brands {
+      font-size: 1em;
+
+      & thead {
+        display: none;
+      }
+
+      & tr {
+        display: block;
+        padding: calc(var(--ids__density) * 0.5em) 0;
+        border-bottom: var(--ids__border-width-s) solid var(--ids__border);
+      }
+
+      & td {
+        display: block;
+        padding: 0;
+        border-bottom: 0;
+        font-size: 0.9em;
+        color: var(--ids__text-caption);
+      }
+
+      /* Название и вложения — то, ради чего строку читают */
+      & td:first-child,
+      & td:last-child {
+        font-size: 1em;
+        color: var(--ids__text);
+      }
+
+      /* Модель и страны живут одной строкой */
+      & td:nth-child(2),
+      & td:nth-child(3) {
+        display: inline;
+      }
+
+      & td:nth-child(3)::before {
+        content: " · ";
+      }
+
+      & td:last-child {
+        margin-top: calc(var(--ids__density) * 0.25em);
+      }
+
+      & .sub {
+        display: inline;
+        margin-left: 0.4em;
+      }
+    }
+  }
+
+  & footer {
+    padding-left: 0;
+    padding-right: 0;
+    border-top: var(--ids__border-width-s) solid var(--ids__border);
+  }
+}

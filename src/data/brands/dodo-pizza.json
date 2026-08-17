@@ -1,0 +1,42 @@
+{
+  "name": "Додо Пицца",
+  "industry": "food",
+  "origin": "Россия",
+  "founded": 2011,
+  "website": "https://dodopizza.ru",
+  "description": "Сеть пиццерий с собственной информационной системой «Додо ИС» и публичной отчётностью партнёров. Первая пиццерия открылась в Сыктывкаре.",
+  "units": null,
+  "holding": { "name": "Dodo Brands", "url": "https://dodobrands.io" },
+  "offers": [
+    {
+      "model": "franchise",
+      "countries": ["Россия"],
+      "investmentFrom": { "amount": 20000000, "currency": "RUB" },
+      "investmentTo": null,
+      "lumpSum": { "amount": 500000, "currency": "RUB" },
+      "royalty": "3,5% от выручки в первый год, далее 5% + НДС",
+      "marketingFee": "3% от месячной выручки",
+      "paybackFrom": 36,
+      "paybackTo": null,
+      "requirements": [
+        "Личное участие в управлении, а не только вложение денег",
+        "Обучение 15 дней в учебном центре в Москве"
+      ],
+      "provides": [
+        "Доступ к инфраструктуре сети",
+        "Обучение партнёра и сотрудников",
+        "Подключение к информационной системе «Додо ИС»",
+        "Дизайн-проект помещения",
+        "Сопровождение запуска"
+      ],
+      "contact": "https://dodofranchise.ru/"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://dodofranchise.ru/",
+      "title": "Франшиза «Додо Пиццы» — условия участия",
+      "checked": "2026-08-17"
+    }
+  ]
+}

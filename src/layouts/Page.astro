@@ -1,0 +1,41 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+
+    <!-- IDS: порядок подключения — tokens → settings → reset → page-composition → components -->
+    <link rel="stylesheet" href={`${base}/ids/css/tokens/palette.css`} />
+    <link rel="stylesheet" href={`${base}/ids/css/tokens/colors.css`} />
+    <link rel="stylesheet" href={`${base}/ids/css/tokens/scales.css`} />
+    <link rel="stylesheet" href={`${base}/ids/css/settings.css`} />
+    <link rel="stylesheet" href={`${base}/ids/css/reset.css`} />
+    <link rel="stylesheet" href={`${base}/ids/css/page-composition/layout.css`} />
+    <link rel="stylesheet" href={`${base}/ids/css/components/ids.css`} />
+    <link rel="stylesheet" href={`${base}/site.css?v=3`} />
+  </head>
+  <body class="ids">
+    <div class="ids__wrapper L">
+      <div class="ids__space M"></div>
+      <slot />
+      <div class="ids__space L"></div>
+      <footer>
+        <p class="caption">
+          Данные собраны из открытых источников. У каждой карточки указан источник и дата проверки.
+        </p>
+      </footer>
+      <div class="ids__space M"></div>
+    </div>
+  </body>
+</html>

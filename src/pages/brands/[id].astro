@@ -1,0 +1,103 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '../../layouts/Page.astro';
+import { MODELS, INDUSTRIES, money, range, usd, months, type ModelKey } from '../../lib/catalog';
+
+export async function getStaticPaths() {
+  const brands = await getCollection('brands');
+  return brands.map((brand) => ({ params: { id: brand.id }, props: { brand } }));
+}
+
+const { brand } = Astro.props;
+const d = brand.data;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const facts = [
+  ['Отрасль', INDUSTRIES[d.industry]],
+  ['Откуда бренд', d.origin],
+  ['Год основания', d.founded ? String(d.founded) : null],
+  ['Точек в сети', d.units ? String(d.units) : null],
+].filter(([, value]) => value) as [string, string][];
+---
+
+<Page title={`${d.name} — условия сотрудничества`} description={d.description}>
+  <p class="caption"><a href={`${base}/`}>Каталог</a></p>
+  <h1 class="XS">{d.name}</h1>
+  <p>{d.description}</p>
+
+  <table>
+    <tbody>
+      {facts.map(([label, value]) => (
+        <tr><td class="key">{label}</td><td>{value}</td></tr>
+      ))}
+      {d.holding && (
+        <tr>
+          <td class="key">Входит в</td>
+          <td>{d.holding.url ? <a href={d.holding.url}>{d.holding.name}</a> : d.holding.name}</td>
+        </tr>
+      )}
+      <tr>
+        <td class="key">Сайт</td>
+        <td><a href={d.website}>{d.website.replace(/^https?:\/\//, '')}</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ids__space M"></div>
+
+  <h2 class="XS">{d.offers.length > 1 ? 'Условия сотрудничества' : 'Условия'}</h2>
+
+  {d.offers.map((o) => {
+    const payback = months(o.paybackFrom, o.paybackTo);
+    return (
+      <>
+        <h4>
+          {MODELS[o.model as ModelKey].label}
+          {o.format && <> · {o.format}</>}
+        </h4>
+        <table>
+          <tbody>
+            <tr>
+              <td class="key">Вложения</td>
+              <td>{range(o.investmentFrom, o.investmentTo)} <span class="sub">≈ {usd(o.investmentFrom)}</span></td>
+            </tr>
+            <tr>
+              <td class="key">Паушальный взнос</td>
+              <td>{o.lumpSum ? money(o.lumpSum) : 'Нет'}</td>
+            </tr>
+            {o.royalty && <tr><td class="key">Роялти</td><td>{o.royalty}</td></tr>}
+            {o.marketingFee && <tr><td class="key">Маркетинговый взнос</td><td>{o.marketingFee}</td></tr>}
+            {payback && <tr><td class="key">Окупаемость</td><td>{payback}</td></tr>}
+            <tr><td class="key">Страны</td><td>{o.countries.join(', ')}</td></tr>
+            {o.requirements.length > 0 && (
+              <tr>
+                <td class="key">Требования</td>
+                <td><ul>{o.requirements.map((r) => <li>{r}</li>)}</ul></td>
+              </tr>
+            )}
+            {o.provides.length > 0 && (
+              <tr>
+                <td class="key">Что даёт бренд</td>
+                <td><ul>{o.provides.map((p) => <li>{p}</li>)}</ul></td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+        {o.contact && <p><a href={o.contact}>Оставить заявку</a></p>}
+        <div class="ids__space S"></div>
+      </>
+    );
+  })}
+
+  <div class="ids__space M"></div>
+
+  <h2 class="XS">Источники</h2>
+  <ul>
+    {d.sources.map((s) => (
+      <li>
+        <a href={s.url}>{s.title}</a>
+        <span class="sub">проверено {s.checked}</span>
+      </li>
+    ))}
+  </ul>
+</Page>

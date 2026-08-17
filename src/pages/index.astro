@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '../layouts/Page.astro';
+import BrandTable from '../components/BrandTable.astro';
+import ModelFilter from '../components/ModelFilter.astro';
+import { orderModels } from '../lib/catalog';
+
+const brands = await getCollection('brands');
+const available = orderModels(brands.flatMap((b) => b.data.offers.map((o) => o.model)));
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Page
+  title="Бренды, с которыми можно построить бизнес"
+  description="Каталог брендов, открытых к сотрудничеству: франшиза, дистрибуция, лицензирование, дилерство. Условия, инвестиции, страны и контакты."
+>
+  <h1 class="XS">Бренды, с которыми можно построить бизнес</h1>
+  <p class="caption">
+    Франшиза, дистрибуция, лицензирование, дилерство. Условия и вложения — из открытых источников.
+  </p>
+
+  <div class="ids__space S"></div>
+  <ModelFilter active={null} available={available} />
+  <div class="ids__space S"></div>
+
+  <BrandTable brands={brands} />
+
+  <div class="ids__space M"></div>
+  <p><a href={`${base}/add/`}>Добавить свой бренд в каталог</a></p>
+</Page>
