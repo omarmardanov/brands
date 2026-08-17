@@ -1,0 +1,17 @@
+---
+interface Props {
+  name: string;
+  logo: string | null;
+  color: string | null;
+  /** Крупный вариант — для заголовка карточки бренда */
+  size?: 'lg';
+}
+const { name, logo, color, size } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const initial = name.trim().charAt(0).toUpperCase();
+const cls = size === 'lg' ? 'mark mark--lg' : 'mark';
+---
+
+{logo
+  ? <img class={cls} src={`${base}${logo}`} alt="" />
+  : <span class={cls} style={color ? `background: ${color}` : undefined}>{initial}</span>}

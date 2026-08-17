@@ -15,6 +15,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
 
+    <!-- Тема — до подключения стилей, чтобы страница не мигала исходной темой -->
+    <script is:inline>
+      (function () {
+        var KEY = 'ids-theme';
+        var saved = localStorage.getItem(KEY);
+        var dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.classList.add('dark');
+      })();
+    </script>
+
     <!-- IDS: порядок подключения — tokens → settings → reset → page-composition → components -->
     <link rel="stylesheet" href={`${base}/ids/css/tokens/palette.css`} />
     <link rel="stylesheet" href={`${base}/ids/css/tokens/colors.css`} />
@@ -23,9 +33,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <link rel="stylesheet" href={`${base}/ids/css/reset.css`} />
     <link rel="stylesheet" href={`${base}/ids/css/page-composition/layout.css`} />
     <link rel="stylesheet" href={`${base}/ids/css/components/ids.css`} />
-    <link rel="stylesheet" href={`${base}/site.css?v=20`} />
+    <link rel="stylesheet" href={`${base}/ids/css/components/theme-toggle.css`} />
+    <link rel="stylesheet" href={`${base}/site.css?v=22`} />
   </head>
   <body class="ids">
+    <button type="button" class="ids__theme-toggle" role="switch" aria-checked="false" aria-label="Тёмная тема">
+      <span class="ids__theme-toggle__track">
+        <span class="ids__theme-toggle__thumb"></span>
+      </span>
+    </button>
+
     <div class="ids__wrapper L">
       <div class="ids__space M"></div>
       <slot />
@@ -38,5 +55,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </footer>
       <div class="ids__space M"></div>
     </div>
+    <script src={`${base}/ids/js/theme-toggle.js`} is:inline></script>
   </body>
 </html>

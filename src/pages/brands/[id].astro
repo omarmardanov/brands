@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Page from '../../layouts/Page.astro';
+import BrandMark from '../../components/BrandMark.astro';
 import { MODELS, INDUSTRIES, money, range, usd, months, type ModelKey } from '../../lib/catalog';
 
 export async function getStaticPaths() {
@@ -22,10 +23,14 @@ const facts = [
 
 <Page title={`${d.name} — условия сотрудничества`} description={d.description}>
   <p class="caption"><a href={`${base}/`}>Каталог</a></p>
-  <h1 class="XS">{d.name}</h1>
+  <div class="brand-head">
+    <BrandMark name={d.name} logo={d.logo} color={d.color} size="lg" />
+    <h1 class="XS">{d.name}</h1>
+  </div>
+  <div class="ids__space S"></div>
   <p>{d.description}</p>
 
-  <table>
+  <table class="facts">
     <tbody>
       {facts.map(([label, value]) => (
         <tr><td class="key">{label}</td><td>{value}</td></tr>
@@ -55,7 +60,7 @@ const facts = [
           {MODELS[o.model as ModelKey].label}
           {o.format && <> · {o.format}</>}
         </h4>
-        <table>
+        <table class="facts">
           <tbody>
             <tr>
               <td class="key">Вложения</td>

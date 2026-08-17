@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { INDUSTRIES, range, type ModelKey } from '../lib/catalog';
+import BrandMark from './BrandMark.astro';
 
 interface Props {
   brands: CollectionEntry<'brands'>[];
@@ -40,9 +41,7 @@ const rows = [...brands].sort(
       return (
         <tr>
           <td class="brand">
-            {brand.data.logo
-              ? <img class="mark" src={`${base}${brand.data.logo}`} alt="" />
-              : <span class="mark" style={brand.data.color ? `background: ${brand.data.color}` : undefined}></span>}
+            <BrandMark name={brand.data.name} logo={brand.data.logo} color={brand.data.color} />
             <a href={`${base}/brands/${brand.id}/`}>{brand.data.name}</a>
             <span class="sub">{INDUSTRIES[brand.data.industry].label}</span>
           </td>
